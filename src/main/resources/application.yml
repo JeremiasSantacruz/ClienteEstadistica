@@ -1,0 +1,13 @@
+spring:
+  config:
+    name: estadisticaCliente
+  datasource:
+    url: jdbc:mariadb://localhost:3306/estadisticaCliente
+    username: local
+    password: local
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+estadisticas:
+  esperanzaDeVida: 76
