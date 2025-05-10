@@ -18,14 +18,12 @@ public class ClienteControllerImp implements ClienteController {
 
     private final ClienteService clienteService;
 
-    @PostMapping("/crearcliente")
     @Override
     public ClienteResponseDto crearCliente(@Valid @RequestBody ClienteDto clienteDto) {
         return clienteService.crearCliente(clienteDto);
 
     }
 
-    @GetMapping("/listclientes")
     @Override
     public Iterable<ClienteResponseDto> listarClientes(Pageable pageable){
         return clienteService.listarClientes(pageable);

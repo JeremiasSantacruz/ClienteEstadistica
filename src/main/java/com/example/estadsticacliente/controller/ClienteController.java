@@ -15,19 +15,24 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@Tag(name = "Search API", description = "Count and save search realizated.")
+@Tag(name = "Clientes API", description = "Endpoint para manipular los clientes")
 public interface ClienteController {
 
     @PostMapping("/crearcliente")
-    @Operation(summary = "Make a search.", description = "Endpoint to make and count same searchs.")
-    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Search successfully", content = @Content(mediaType = "application/json")),
-            @ApiResponse(responseCode = "412", description = "Parameters validator errors", content = @Content),
+    @Operation(summary = "Crear un cliente.", description = "Crear un cliente en la base de datos.")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Crea un cliente.", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "412", description = "Parametros incorrectos", content = @Content),
             @ApiResponse(responseCode = "500", description = "Internal Error, support is required", content = @Content),
             @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content),
             @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content) })
-
     ClienteResponseDto crearCliente(@Valid @RequestBody ClienteDto clienteDto);
 
     @GetMapping("/listclientes")
+    @Operation(summary = "Devuelve una Lista de clientes.", description = "Obtiene una lista de los clientes registrados.")
+    @ApiResponses({ @ApiResponse(responseCode = "200", description = "Crea un cliente.", content = @Content(mediaType = "application/json")),
+            @ApiResponse(responseCode = "412", description = "Parametros incorrectos", content = @Content),
+            @ApiResponse(responseCode = "500", description = "Internal Error, support is required", content = @Content),
+            @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content),
+            @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content) })
     Iterable<ClienteResponseDto> listarClientes(Pageable pageable);
 }
