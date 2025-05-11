@@ -29,10 +29,12 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-cache'
+    implementation 'org.springframework.boot:spring-boot-starter-logging'
     // OpenApi
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.8'
     // DB
-    implementation 'org.mariadb.jdbc:mariadb-java-client:3.3.3'
+    implementation 'com.google.cloud:google-cloud-sql-jdbc-socket-factory:1.2.2' // Para la conexión a Cloud SQL
+    implementation 'com.zaxxer:HikariCP' // Para la configuración de la conexión
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
