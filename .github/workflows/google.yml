@@ -10,7 +10,7 @@ env:
   SVC_ACCOUNT: ${{ secrets.GCP_SVC_ACCOUNT }}
   GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/${{ secrets.GCP_SVC_ACCOUNT }}.json
   SVC_ACCOUNT_EMAIL: ${{ secrets.GCP_SVC_ACCOUNT }}@${{ secrets.GCP_PROJECT_ID }}.iam.gserviceaccount.com
-  GAR_LOCATION:  ${{ main.GCP_REGION }}
+  GAR_LOCATION:  ${{ vars.GCP_REGION }}
   GAR_REPOSITORY: ${{ vars.GCP_NAME }}
   CLOUD_RUN_SERVICE_NAME: 'estadistica' # Ej: my-awesome-app
   CLOUD_RUN_REGION: ${{ env.GCP_REGION }}
