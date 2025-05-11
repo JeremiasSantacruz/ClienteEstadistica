@@ -23,6 +23,18 @@ jobs:
       contents: 'read'
 
     steps:
+      - name: Verificar env
+        run: |
+          echo "Environment variables configured:"
+          echo PROJECT_ID="$GCP_PROJECT_ID"
+          echo REGION="$GAR_LOCATION"
+          echo SVC_ACCOUNT="$SVC_ACCOUNT"
+          echo SVC_ACCOUNT_EMAIL="$SVC_ACCOUNT_EMAIL"
+          echo GOOGLE_APPLICATION_CREDENTIALS="$GOOGLE_APPLICATION_CREDENTIALS"
+          echo Repo="$GAR_REPOSITORY"
+          echo Region2="$CLOUD_RUN_REGION"
+          echo ""
+
       - name: Checkout code
         uses: actions/checkout@v4
 
