@@ -1,29 +1,27 @@
-FROM eclipse-temurin:21-jdk-focal AS builder
+# Etapa 1: Construcción
+FROM gradle:8.14.0-jdk21 AS builder
 WORKDIR /app
 
+# Copiar solo los archivos de configuración de Gradle para aprovechar el caché de Docker
+COPY gradle gradle
 COPY gradlew .
-COPY gradlew.bat .
-COPY gradle ./gradle
+COPY build.gradle settings.gradle ./
 
-COPY build.gradle.kts .
-COPY settings.gradle.kts .
-COPY src ./src
+# Descarga las dependencias sin compilar la aplicación
+RUN ./gradlew dependencies --no-daemon
 
-# Descargar las dependencias de Gradle y los plugins
-RUN gradle dependencies --write-locks
+# Copiar el resto del código fuente
+COPY src src
 
-# Construir la aplicación
-RUN gradle bootJar
+# Compilar la aplicación
+RUN ./gradlew build --no-daemon
 
-# ---
-# Fase para la imagen final de ejecución
-# ---
-FROM eclipse-temurin:21-jre-focal
+# Etapa 2: Imagen final
+FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
-# Copiar solo el JAR construido de la fase anterior
+# Copiar el archivo JAR desde la etapa de construcción
 COPY --from=builder /app/build/libs/*.jar app.jar
 
-EXPOSE 8080
-
+# Ejecutar la aplicación
 ENTRYPOINT ["java", "-jar", "app.jar"]
