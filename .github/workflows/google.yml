@@ -52,6 +52,12 @@ jobs:
         with:
           service_account_key_file: '${{ env.GOOGLE_APPLICATION_CREDENTIALS }}'
 
+      - name: Your gcloud command
+        run: |
+          gcloud config set project ${{ env.PROJECT_ID }}
+          # Add your other gcloud commands here
+          gcloud compute instances list
+
       # Opcional: Si necesitas autenticar Docker con Artifact Registry (setup-gcloud a menudo lo maneja)
       # - name: Configure Docker
       #   run: gcloud auth configure-docker ${{ env.GAR_LOCATION }}-docker.pkg.dev
