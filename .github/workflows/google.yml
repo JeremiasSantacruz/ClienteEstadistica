@@ -7,10 +7,10 @@ on:
   workflow_dispatch:  # Allows manual triggering of the workflow.
 
 env:
-  GCP_PROJECT_ID: single-arcanum-cas-i4
+  GCP_PROJECT_ID: ${{ secrets.GCP_PROJECT_ID }}
   SVC_ACCOUNT: ${{ secrets.GCP_SVC_ACCOUNT }}
   GOOGLE_APPLICATION_CREDENTIALS: ${{ github.workspace }}/${{ secrets.GCP_SVC_ACCOUNT }}.json
-  SVC_ACCOUNT_EMAIL: ${{ secrets.GCP_SVC_ACCOUNT }}@developer.gserviceaccount.com
+  SVC_ACCOUNT_EMAIL: ${{ secrets.GCP_SVC_ACCOUNT }}@${{ secrets.GCP_PROJECT_ID }}.iam.gserviceaccount.com
   GAR_LOCATION:  ${{ vars.GCP_REGION }}
   GAR_REPOSITORY: ${{ vars.GCP_NAME }}
   CLOUD_RUN_SERVICE_NAME: 'estadistica' # Ej: my-awesome-app
