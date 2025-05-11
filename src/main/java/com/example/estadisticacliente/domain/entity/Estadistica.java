@@ -1,4 +1,4 @@
-package com.example.estadsticacliente.domain.entity;
+package com.example.estadisticacliente.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

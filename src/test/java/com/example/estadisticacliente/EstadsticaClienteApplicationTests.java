@@ -1,4 +1,4 @@
-package com.example.estadsticacliente;
+package com.example.estadisticacliente;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

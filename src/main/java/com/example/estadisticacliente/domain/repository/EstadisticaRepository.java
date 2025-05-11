@@ -1,6 +1,6 @@
-package com.example.estadsticacliente.domain.repository;
+package com.example.estadisticacliente.domain.repository;
 
-import com.example.estadsticacliente.domain.entity.Estadistica;
+import com.example.estadisticacliente.domain.entity.Estadistica;
 import org.springframework.data.repository.CrudRepository;
 
 public interface EstadisticaRepository extends CrudRepository<Estadistica, Long> {

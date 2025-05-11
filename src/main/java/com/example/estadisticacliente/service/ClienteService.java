@@ -1,11 +1,12 @@
-package com.example.estadsticacliente.service;
+package com.example.estadisticacliente.service;
 
-import com.example.estadsticacliente.domain.dto.ClienteDto;
-import com.example.estadsticacliente.domain.dto.ClienteResponseDto;
-import com.example.estadsticacliente.domain.mapper.ClienteMapper;
-import com.example.estadsticacliente.domain.repository.ClienteRepository;
+import com.example.estadisticacliente.domain.dto.ClienteDto;
+import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
+import com.example.estadisticacliente.domain.mapper.ClienteMapper;
+import com.example.estadisticacliente.domain.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -32,12 +33,12 @@ public class ClienteService {
             // TODO: Ver manejo de errores
         }
         var response = clienteRepository.save(ClienteMapper.toEntity(clienteDto, esperanzaDeVida));
-        estadisticaService.nuevoDato(BigDecimal.valueOf(edad));
+        estadisticaService.nuevoDato(BigDecimal.valueOf(edad)); // Async
         return ClienteMapper.toResponse(response);
     }
 
-    public Iterable<ClienteResponseDto> listarClientes(Pageable page) {
-        return clienteRepository.findAll(page).stream().map(ClienteMapper::toResponse).toList();
+    public Page<ClienteResponseDto> listarClientes(Pageable page) {
+        return clienteRepository.findAll(page).map(ClienteMapper::toResponse);
     }
 
 }

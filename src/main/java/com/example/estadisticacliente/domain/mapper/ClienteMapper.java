@@ -1,8 +1,8 @@
-package com.example.estadsticacliente.domain.mapper;
+package com.example.estadisticacliente.domain.mapper;
 
-import com.example.estadsticacliente.domain.dto.ClienteDto;
-import com.example.estadsticacliente.domain.dto.ClienteResponseDto;
-import com.example.estadsticacliente.domain.entity.Cliente;
+import com.example.estadisticacliente.domain.dto.ClienteDto;
+import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
+import com.example.estadisticacliente.domain.entity.Cliente;
 
 public class ClienteMapper {
 

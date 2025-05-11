@@ -1,6 +1,6 @@
-package com.example.estadsticacliente.controller;
+package com.example.estadisticacliente.controller;
 
-import com.example.estadsticacliente.domain.dto.EstadisticasDto;
+import com.example.estadisticacliente.domain.dto.EstadisticasDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;

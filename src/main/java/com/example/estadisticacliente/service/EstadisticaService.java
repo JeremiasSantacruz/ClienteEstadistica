@@ -1,9 +1,9 @@
-package com.example.estadsticacliente.service;
+package com.example.estadisticacliente.service;
 
-import com.example.estadsticacliente.domain.dto.EstadisticasDto;
-import com.example.estadsticacliente.domain.entity.Estadistica;
-import com.example.estadsticacliente.domain.mapper.EstadisticasMapper;
-import com.example.estadsticacliente.domain.repository.EstadisticaRepository;
+import com.example.estadisticacliente.domain.dto.EstadisticasDto;
+import com.example.estadisticacliente.domain.entity.Estadistica;
+import com.example.estadisticacliente.domain.mapper.EstadisticasMapper;
+import com.example.estadisticacliente.domain.repository.EstadisticaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
@@ -33,7 +33,7 @@ public class EstadisticaService {
         return estadistica.get();
     }
 
-    @Async
+    @Async // Se puede hacer mejor con un manejador custmon
     @CacheEvict("estadisitcas")
     public void nuevoDato(BigDecimal edadNuevoCliente) {
         var estadistica = getEstadistica();
