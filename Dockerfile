@@ -12,7 +12,7 @@
 FROM eclipse-temurin:21-jre-jammy
 
 # Argumento para el nombre del JAR. Cloud Build puede pasar este valor.
-ARG JAR_FILE_NAME=mi-aplicacion.jar
+ARG JAR_FILE_NAME=estadsticaCliente-0.0.1-SNAPSHOT.jar
 
 # Directorio de trabajo dentro del contenedor
 WORKDIR /app
