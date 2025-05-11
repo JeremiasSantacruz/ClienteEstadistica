@@ -35,9 +35,9 @@ jobs:
         shell: bash
 
       - name: Set up Cloud SDK
-         uses: 'google-github-actions/setup-gcloud@v2'
-         with:
-           service_account_key_file: '${{ env.GOOGLE_APPLICATION_CREDENTIALS }}'
+        uses: 'google-github-actions/setup-gcloud@v2'
+        with:
+          service_account_key_file: '${{ env.GOOGLE_APPLICATION_CREDENTIALS }}'
 
       # Opcional: Si necesitas autenticar Docker con Artifact Registry (setup-gcloud a menudo lo maneja)
       # - name: Configure Docker
