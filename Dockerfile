@@ -6,6 +6,7 @@ WORKDIR /app
 COPY gradle gradle
 COPY gradlew .
 COPY build.gradle settings.gradle ./
+RUN chmod +x gradlew
 
 # Descarga las dependencias sin compilar la aplicación
 RUN ./gradlew dependencies --no-daemon
