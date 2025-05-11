@@ -13,7 +13,7 @@ env:
   GAR_LOCATION:  ${{ vars.GCP_REGION }}
   GAR_REPOSITORY: ${{ vars.GCP_NAME }}
   CLOUD_RUN_SERVICE_NAME: 'estadistica' # Ej: my-awesome-app
-  CLOUD_RUN_REGION: ${{ env.GCP_REGION }}
+  CLOUD_RUN_REGION: ${{ vars.GCP_REGION }}
 
 jobs:
   build-and-deploy:
