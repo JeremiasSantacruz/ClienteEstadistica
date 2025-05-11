@@ -1,10 +1,9 @@
-package com.example.estadsticacliente.controller.implementation;
+package com.example.estadisticacliente.controller.implementation;
 
-import com.example.estadsticacliente.controller.EstadisticaController;
-import com.example.estadsticacliente.domain.dto.EstadisticasDto;
-import com.example.estadsticacliente.service.EstadisticaService;
+import com.example.estadisticacliente.controller.EstadisticaController;
+import com.example.estadisticacliente.domain.dto.EstadisticasDto;
+import com.example.estadisticacliente.service.EstadisticaService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

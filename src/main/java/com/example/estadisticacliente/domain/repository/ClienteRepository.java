@@ -1,6 +1,6 @@
-package com.example.estadsticacliente.domain.repository;
+package com.example.estadisticacliente.domain.repository;
 
-import com.example.estadsticacliente.domain.entity.Cliente;
+import com.example.estadisticacliente.domain.entity.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {

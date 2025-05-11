@@ -1,4 +1,4 @@
-package com.example.estadsticacliente.domain.dto;
+package com.example.estadisticacliente.domain.dto;
 
 import jakarta.validation.constraints.*;
 

@@ -1,7 +1,7 @@
-package com.example.estadsticacliente.domain.mapper;
+package com.example.estadisticacliente.domain.mapper;
 
-import com.example.estadsticacliente.domain.dto.EstadisticasDto;
-import com.example.estadsticacliente.domain.entity.Estadistica;
+import com.example.estadisticacliente.domain.dto.EstadisticasDto;
+import com.example.estadisticacliente.domain.entity.Estadistica;
 
 public class EstadisticasMapper {
 

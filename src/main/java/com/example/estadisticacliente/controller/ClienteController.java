@@ -1,13 +1,14 @@
-package com.example.estadsticacliente.controller;
+package com.example.estadisticacliente.controller;
 
-import com.example.estadsticacliente.domain.dto.ClienteDto;
-import com.example.estadsticacliente.domain.dto.ClienteResponseDto;
+import com.example.estadisticacliente.domain.dto.ClienteDto;
+import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,5 +35,5 @@ public interface ClienteController {
             @ApiResponse(responseCode = "500", description = "Internal Error, support is required", content = @Content),
             @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content),
             @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content) })
-    Iterable<ClienteResponseDto> listarClientes(Pageable pageable);
+    Page<ClienteResponseDto> listarClientes(Pageable pageable);
 }
