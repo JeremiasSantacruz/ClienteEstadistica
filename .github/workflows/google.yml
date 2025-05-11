@@ -57,9 +57,9 @@ jobs:
         run: |
           echo "${{ secrets.GCP_SVC_ACCOUNT_CREDS }}" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
           gcloud auth activate-service-account $SVC_ACCOUNT_EMAIL --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-          echo "Poject $PROJECT_ID"
-          echo "project212 ${{ env.PROJECT_ID }}"
-          gcloud config set project $PROJECT_ID
+          echo "Poject $GCP_PROJECT_ID"
+          echo "project212 ${{ env.GCP_PROJECT_ID }}"
+          gcloud config set project $GCP_PROJECT_ID
           echo "Location $GAR_LOCATION"
           gcloud config set run/region $GAR_LOCATION
 
