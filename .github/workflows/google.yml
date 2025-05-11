@@ -39,24 +39,27 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-        # Creates a credentials file that will be used for ADC later
-      - name: Create credentials file
-        run: |
-          echo "${{ secrets.GCP_SVC_ACCOUNT_CREDS }}" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
-          echo "Checking the credentials:"
-          head -n 3 $GOOGLE_APPLICATION_CREDENTIALS
-        shell: bash
+      #   # Creates a credentials file that will be used for ADC later
+      # - name: Create credentials file
+      #   run: |
+      #     echo "${{ secrets.GCP_SVC_ACCOUNT_CREDS }}" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
+      #     echo "Checking the credentials:"
+      #     head -n 3 $GOOGLE_APPLICATION_CREDENTIALS
+      #   shell: bash
 
-      - name: Set up Cloud SDK
-        uses: 'google-github-actions/setup-gcloud@v2'
-        with:
-          service_account_key_file: '${{ env.GOOGLE_APPLICATION_CREDENTIALS }}'
+      # - name: Set up Cloud SDK
+      #   uses: 'google-github-actions/setup-gcloud@v2'
+      #   with:
+      #     service_account_key_file: '${{ env.GOOGLE_APPLICATION_CREDENTIALS }}'
 
       - name: Your gcloud command
+    # Authenticate with Google Cloud
+      - name: Authenticate to Google Cloud
         run: |
-          gcloud config set project ${{ env.PROJECT_ID }}
-          # Add your other gcloud commands here
-          gcloud compute instances list
+          echo "${{ secrets.GCP_SVC_ACCOUNT_CREDS }}" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
+          gcloud auth activate-service-account $SVC_ACCOUNT_EMAIL --key-file=$GOOGLE_APPLICATION_CREDENTIALS
+          gcloud config set project $PROJECT_ID
+          gcloud config set run/region $REGION
 
       # Opcional: Si necesitas autenticar Docker con Artifact Registry (setup-gcloud a menudo lo maneja)
       # - name: Configure Docker
