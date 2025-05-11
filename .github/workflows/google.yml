@@ -57,8 +57,8 @@ jobs:
         run: |
           echo "${{ secrets.GCP_SVC_ACCOUNT_CREDS }}" | base64 --decode > $GOOGLE_APPLICATION_CREDENTIALS
           gcloud auth activate-service-account $SVC_ACCOUNT_EMAIL --key-file=$GOOGLE_APPLICATION_CREDENTIALS
-          gcloud config set project ${{ env.PROJECT_ID }}
-          gcloud config set run/region ${{ env.GAR_LOCATION }}
+          gcloud config set project $PROJECT_ID
+          gcloud config set run/region GAR_LOCATION
 
       # Opcional: Si necesitas autenticar Docker con Artifact Registry (setup-gcloud a menudo lo maneja)
       # - name: Configure Docker
