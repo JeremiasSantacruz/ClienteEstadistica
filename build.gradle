@@ -45,6 +45,3 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-bootJar {
-    mainClass = 'com.example.estadisticacliente'
-}

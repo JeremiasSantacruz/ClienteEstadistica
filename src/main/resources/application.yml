@@ -2,10 +2,9 @@ spring:
   config:
     name: estadisticaCliente
   datasource:
-    url: jdbc:mysql:///<nombre_de_la_base_de_datos>?cloudSqlInstance=single-arcanum-459318-i4:southamerica-east1:client-stadistic-1&socketFactory=com.google.cloud.sql.mysql.SocketFactory
+    url: jdbc:mysql://estadisticaCliente?cloudSqlInstance=single-arcanum-459318-i4:southamerica-east1:client-stadistic-1&socketFactory=com.google.cloud.sql.mysql.SocketFactory
     username: estadistica
     password: jeremias13
-    driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
