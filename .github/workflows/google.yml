@@ -52,7 +52,6 @@ jobs:
       #   with:
       #     service_account_key_file: '${{ env.GOOGLE_APPLICATION_CREDENTIALS }}'
 
-      - name: Your gcloud command
     # Authenticate with Google Cloud
       - name: Authenticate to Google Cloud
         run: |
