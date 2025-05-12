@@ -33,8 +33,7 @@ dependencies {
     // OpenApi
     implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.8'
     // DB
-    implementation 'com.zaxxer:HikariCP' // Para la configuración de la conexión
-    implementation 'com.google.cloud.sql:mysql-socket-factory-connector-j-8:1.25.0'
+    runtimeOnly 'com.h2database:h2'
     runtimeOnly 'com.mysql:mysql-connector-j'
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'

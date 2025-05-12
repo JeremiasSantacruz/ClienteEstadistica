@@ -1,12 +1,13 @@
 spring:
   config:
     name: estadisticaCliente
+  h2:
+    console:
+      enabled: true
   datasource:
-    url: jdbc:mysql://google/estadisticaCliente?cloudSqlInstance=single-arcanum-459318-i4:southamerica-east1:client-stadistic-1&socketFactory=com.google.cloud.sql.mysql.SocketFactory
-    username: root
-    password: rootcontra
+    url: jdbc:h2:file:./data/testdb
+    driver-class-name: org.h2.Driver
   jpa:
-    database-platform: org.hibernate.dialect.MySQL8Dialect
     hibernate:
       ddl-auto: update
 

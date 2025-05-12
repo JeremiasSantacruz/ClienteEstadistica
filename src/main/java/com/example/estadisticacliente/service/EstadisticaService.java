@@ -28,7 +28,7 @@ public class EstadisticaService {
     public Estadistica getEstadistica() {
         var estadistica = estadisticaRepository.findById(1L);
         if (estadistica.isEmpty()) {
-            throw new IllegalStateException("No hay estadísticas registradas");
+             estadistica = java.util.Optional.of(estadisticaRepository.save(new Estadistica()));
         }
         return estadistica.get();
     }
