@@ -12,13 +12,14 @@ import java.math.RoundingMode;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Estadistica {
     @Id
     Long id = 1L;
     BigDecimal media = BigDecimal.ZERO;
     BigDecimal varianza = BigDecimal.ZERO;
     BigDecimal desviacionEstandar = BigDecimal.ZERO;
-    BigDecimal desviacion;
+    BigDecimal desviacion = BigDecimal.ZERO;
     BigDecimal suma = BigDecimal.ZERO;
     BigDecimal sumaDeCuadrados = BigDecimal.ZERO;
     BigDecimal numeroDeClientes = BigDecimal.ZERO;
