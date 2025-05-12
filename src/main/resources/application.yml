@@ -2,7 +2,7 @@ spring:
   config:
     name: estadisticaCliente
   datasource:
-    url: jdbc:mysql://estadisticaCliente?cloudSqlInstance=single-arcanum-459318-i4:southamerica-east1:client-stadistic-1&socketFactory=com.google.cloud.sql.mysql.SocketFactory
+    url: jdbc:mysql://34.151.193.84:3306/estadisticaCliente?cloudSqlInstance=single-arcanum-459318-i4:southamerica-east1:client-stadistic-1&socketFactory=com.google.cloud.sql.mysql.SocketFactory
     username: estadistica
     password: jeremias13
   jpa:
