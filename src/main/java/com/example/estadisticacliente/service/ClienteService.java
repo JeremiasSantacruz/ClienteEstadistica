@@ -5,6 +5,7 @@ import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
 import com.example.estadisticacliente.domain.mapper.ClienteMapper;
 import com.example.estadisticacliente.domain.repository.ClienteRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,6 +16,7 @@ import java.time.LocalDate;
 import java.time.Period;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class ClienteService {
 
@@ -32,6 +34,7 @@ public class ClienteService {
             throw new IllegalArgumentException(msg);
             // TODO: Ver manejo de errores
         }
+        log.info("Creando cliente: {}", clienteDto);
         var response = clienteRepository.save(ClienteMapper.toEntity(clienteDto, esperanzaDeVida));
         estadisticaService.nuevoDato(BigDecimal.valueOf(edad)); // Async
         return ClienteMapper.toResponse(response);
