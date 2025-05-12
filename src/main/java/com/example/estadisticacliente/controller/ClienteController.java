@@ -2,6 +2,7 @@ package com.example.estadisticacliente.controller;
 
 import com.example.estadisticacliente.domain.dto.ClienteDto;
 import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
+import com.example.estadisticacliente.exception.ServiceException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -26,7 +27,7 @@ public interface ClienteController {
             @ApiResponse(responseCode = "500", description = "Internal Error, support is required", content = @Content),
             @ApiResponse(responseCode = "401", description = "Unauthorized", content = @Content),
             @ApiResponse(responseCode = "403", description = "Forbidden", content = @Content) })
-    ClienteResponseDto crearCliente(@Valid @RequestBody ClienteDto clienteDto);
+    ClienteResponseDto crearCliente(@Valid @RequestBody ClienteDto clienteDto) throws ServiceException;
 
     @GetMapping("/listclientes")
     @Operation(summary = "Devuelve una Lista de clientes.", description = "Obtiene una lista de los clientes registrados.")

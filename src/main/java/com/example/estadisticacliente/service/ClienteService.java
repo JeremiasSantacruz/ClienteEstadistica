@@ -4,11 +4,13 @@ import com.example.estadisticacliente.domain.dto.ClienteDto;
 import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
 import com.example.estadisticacliente.domain.mapper.ClienteMapper;
 import com.example.estadisticacliente.domain.repository.ClienteRepository;
+import com.example.estadisticacliente.exception.ServiceException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
@@ -27,12 +29,11 @@ public class ClienteService {
     @Value("${estadisticas.esperanzaDeVida}")
     private Long esperanzaDeVida;
 
-    public ClienteResponseDto crearCliente(ClienteDto clienteDto) {
+    public ClienteResponseDto crearCliente(ClienteDto clienteDto) throws ServiceException {
         int edad = Period.between(clienteDto.fechaDeNacimiento(), LocalDate.now()).getYears();
         if (edad != clienteDto.edad()) {
             String msg = String.format("La edad del cliente no coincide con la fecha de nacimiento. Esperado %s Actual %s", edad, clienteDto.edad());
-            throw new IllegalArgumentException(msg);
-            // TODO: Ver manejo de errores
+            throw new ServiceException( HttpStatus.BAD_REQUEST, msg);
         }
         log.info("Creando cliente: {}", clienteDto);
         var response = clienteRepository.save(ClienteMapper.toEntity(clienteDto, esperanzaDeVida));

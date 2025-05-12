@@ -3,6 +3,7 @@ package com.example.estadisticacliente.controller.implementation;
 import com.example.estadisticacliente.controller.ClienteController;
 import com.example.estadisticacliente.domain.dto.ClienteDto;
 import com.example.estadisticacliente.domain.dto.ClienteResponseDto;
+import com.example.estadisticacliente.exception.ServiceException;
 import com.example.estadisticacliente.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +19,7 @@ public class ClienteControllerImp implements ClienteController {
     private final ClienteService clienteService;
 
     @Override
-    public ClienteResponseDto crearCliente(@Valid @RequestBody ClienteDto clienteDto) {
+    public ClienteResponseDto crearCliente(@Valid @RequestBody ClienteDto clienteDto) throws ServiceException {
         return clienteService.crearCliente(clienteDto);
 
     }
